@@ -10,6 +10,16 @@
   <body>
     <div id="vue-app">
       <h1>[[ myTitle ]]</h1>
+
+        {{ myvar }}
+
+        {% for post in posts %}
+            <div style="margin: ">
+            {{ post.title }} {{ post.pub_date }} {{ post.description }}
+            </div>
+        {% endfor %}
+
+
     </div>
     <script type="text/javascript">
       let app = new Vue({
