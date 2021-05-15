@@ -7,40 +7,51 @@
 {% block content %}
 
     <div id="app">
-      <v-app id="inspire">
-          {% include "app/base_app_bar.html" %}
-          <v-main class="grey lighten-3">
-            {% if user.is_authenticated %}
-                {% block content_app %}
-                {% endblock %}
-            {% else %}
-                <a href="/login">Login Here</a>
-            {% endif %}
-        </v-main>
-      </v-app>
+        <div v-cloak>
+
+            <v-app id="inspire">
+
+                {% include "app/base_app_bar.html" %}
+                <v-main class="grey lighten-3">
+                    {% if user.is_authenticated %}
+                        {% block content_app %}
+                        {% endblock %}
+                    {% else %}
+                        <a href="/login">Login Here</a>
+                    {% endif %}
+                </v-main>
+            </v-app>
+        </div>
+
     </div>
+
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
 
 {% endblock %}
 
 {% block vue %}
     <script>
-tabs = {
-    '/feed': 'Feed',
-    '/new_post': 'New Post'
-}
-// TODO if tab doesn't exist redirect to error page
-new Vue({
-    el: '#app',
-    vuetify: new Vuetify(),
-    data: function () {
-      return{
-        active_tab: "{% block tab %}{% endblock %}",
-        tabs: tabs
-      }
-    },
-    delimiters: ['[[', ']]'],
-})
-</script>
+        tabs = {
+            '/feed': 'Feed',
+            '/new_post': 'New Post'
+        }
+        // TODO if tab doesn't exist redirect to error page
+        new Vue({
+            el: '#app',
+            vuetify: new Vuetify(),
+            data: function () {
+                return {
+                    active_tab: "{% block tab %}{% endblock %}",
+                    tabs: tabs
+                }
+            },
+            delimiters: ['[[', ']]'],
+        })
+    </script>
 {% endblock %}
 </body>
 </html>
