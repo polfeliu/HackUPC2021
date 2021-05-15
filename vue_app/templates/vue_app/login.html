@@ -1,0 +1,31 @@
+<!-- vue_app/templates/vue_app/login.html -->
+<html>
+  <head>
+    <title>log in</title>
+    {% if env_name == 'production' %}
+      <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    {% else %}
+      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    {% endif %}  </head>
+  <body>
+    <h1>log in</h1>
+    <form>
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username"><br>
+        <label for="pwd">Password:</label><br>
+        <input type="password" id="pwd" name="pwd"><br>
+        <input type="checkbox" id="imstudent" name="ifstudent" value="okstudent">
+        <label for="imstudent"> I'm a UPC Student</label></br>
+        <input type="submit" value="Submit">
+    </form>
+    <script type="text/javascript">
+      let app = new Vue({
+        el: "#vue-app",
+        delimiters: ['[[', ']]'],
+        data: {
+          myTitle: 'Hello Vue!',
+        },
+      });
+    </script>
+  </body>
+</html>

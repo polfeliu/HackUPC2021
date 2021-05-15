@@ -1,9 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 
-from vue_app.models import Post
+from vue_app.models import Post  # , Login
+from vue_app.forms import NewPost
 
-from .forms import NewPost
 
 def feed(request):
 
@@ -12,6 +12,13 @@ def feed(request):
         'posts': Post.objects.all()
     }
     return render(request, 'vue_app/test.html', context)
+
+def login(request):
+
+    context = {
+
+    }
+    return render(request, 'vue_app/login.html', context)
 
 def post(request, post_id):
     return HttpResponse(f"Hello, this is the {post_id}")
