@@ -1,5 +1,5 @@
 {% extends "app/base_app.html"  %}
-
+{% load static %}
 {% block title %}Feed{% endblock %}
 {% block tab %}/feed{% endblock %}
 
@@ -15,7 +15,11 @@
                     rounded="lg"
                     min-height="268"
             >
-                <!--  -->
+                <v-img
+                contain
+                max-height="50%"
+                src="{% static '/logos/1.png' %}"
+            ></v-img>
             </v-sheet>
         </v-col>
 
@@ -27,7 +31,37 @@
                     min-height="70vh"
                     rounded="lg"
             >
+
+                {% for post in posts %}
+
+                <v-card
+                class="mx-auto"
+                outlined
+              >
+                <v-list-item three-line>
+                  <v-list-item-content>
+                    <div class="overline mb-4">
+                      <v-list-item-subtitle>{{ post.pub_date }}</v-list-item-subtitle>
+                    </div>
+                    <v-list-item-title class="headline mb-1">
+                      {{post.title}}
+                    </v-list-item-title>
+                    <v-list-item-subtitle>{{post.description}}</v-list-item-subtitle>
+                  </v-list-item-content>
+
+                <v-card-actions>
+                  <v-btn
+                    outlined
+                    rounded
+                    text
+                    href="post/{{ post.id }}"
+                  >
+                    Tell me more
+                  </v-btn>
+                </v-card-actions>
+              </v-card>
                 <!--  -->
+                {% endfor %}
             </v-sheet>
         </v-col>
 
@@ -39,7 +73,11 @@
                     rounded="lg"
                     min-height="268"
             >
-                <!--  -->
+                <v-img
+                contain
+                max-height="100%"
+                src="{% static '/logos/2.png' %}"
+                ></v-img>
             </v-sheet>
         </v-col>
     </v-row>
