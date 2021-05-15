@@ -1,5 +1,8 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 
-from django.shortcuts import render
-def test_vue(request):
-    return render(request, 'vue_app/test.html')
+def feed(request):
+    return HttpResponse("Hello, this is the feed")
+
+def post(request, post_id):
+    return HttpResponse(f"Hello, this is the {post_id}")
