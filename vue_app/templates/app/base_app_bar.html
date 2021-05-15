@@ -24,9 +24,26 @@
         </v-tab>
     </v-tabs>
 
-    <v-avatar
+
+
+    <v-menu offset-y>
+      <template v-slot:activator="{ on, attrs }">
+              <v-avatar
             class="hidden-sm-and-down"
             color="grey darken-1 shrink"
             size="32"
+            v-bind="attrs"
+          v-on="on"
     ></v-avatar>
+      </template>
+      <v-list>
+         <v-list-item>
+             <v-list-item-title>
+                 <span>
+                    Logout
+                 </span>
+             </v-list-item-title>
+         </v-list-item>
+      </v-list>
+    </v-menu>
 </v-app-bar>
