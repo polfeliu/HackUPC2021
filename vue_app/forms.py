@@ -16,6 +16,8 @@ class NewPost(forms.Form):
 
         post.save()
 
+        return post.id
+
 class NewUser(forms.Form):
     email = forms.EmailField()
     pwd = forms.PasswordInput()

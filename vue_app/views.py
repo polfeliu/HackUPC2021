@@ -61,9 +61,9 @@ def new_post_FORM(request):
         # check whether it's valid:
         if form.is_valid():
             # process the data in form.cleaned_data as required
-            form.create_post()
+            post_id = form.create_post()
             # redirect to a new URL:
-            return HttpResponseRedirect('/thanks/')
+            return HttpResponseRedirect(f'/post/{post_id}')
 
         else:
             return HttpResponseRedirect('/Error/')
