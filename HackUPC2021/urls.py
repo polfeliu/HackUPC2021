@@ -25,5 +25,6 @@ urlpatterns = [
     path('feed', views.feed),
     path('post/<int:post_id>', views.post),
     path('new_post/', views.new_post),
-    path('new_post_FORM/', views.new_post_FORM)
+    path('new_post_FORM/', views.new_post_FORM),
+    path('new_user',views.new_user)
 ]

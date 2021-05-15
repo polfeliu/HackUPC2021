@@ -11,6 +11,14 @@ def feed(request):
 def login(request):
     return render(request, 'vue_app/login.html')
 
+def new_user(request):
+
+    context = {
+
+    }
+
+    return render(request, 'vue_app/new_user.html', context)
+
 def new_user_FORM(request):
     # if this is a USER request we need to process the new user data
     if request.method == 'POST':
@@ -29,7 +37,13 @@ def new_user_FORM(request):
         # TODO Return Error View
 
 def post(request, post_id):
-    return HttpResponse(f"Hello, this is the {post_id}")
+    context = {
+        'post': Post.objects.get(id=post_id)
+    }
+    if Post.objects.filter(id=post_id).exists()
+        return render(request, 'vue_app/post/post_id',context )
+    else:
+        return HttpResponseRedirect('/Error')
 
 def new_post(request):
     return render(request, 'vue_app/new_post.html')
@@ -37,7 +51,6 @@ def new_post(request):
 
 def landing(request):
     return render(request, 'vue_app/landing.html')
-
 
 def new_post_FORM(request):
     # if this is a POST request we need to process the form data
