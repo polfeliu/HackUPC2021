@@ -1,16 +1,31 @@
-{% include "vue_app/base_init.html" with title="new_post" %}
+{% include "vue_app/base_init.html" with title="New Post" %}
 {% include "vue_app/base_bar.html" %}
 
+<v-container>
 
+    <v-sheet class="pa-10">
+        <v-form action="/new_post_FORM/" method="post">
+            {% csrf_token %}
 
-<form action="/new_post_FORM/" method="post">
-    {% csrf_token %}
-    <label for="your_name">Your name: </label>
-    <input type="text" id="title" name="title" max="100">
-    <input type="text" name="description" max="1000">
+            <v-text-field
+                    v-model="name"
+                    :counter="100"
+                    label="Title"
+                    name="title"
+                    required
+            ></v-text-field>
 
-    <input type="submit" value="OK">
+            <v-textarea
+                    outlined
+                    label="description"
+                    name="description"
+                    rows="20"
+            ></v-textarea>
 
-</form>
+            <v-btn type="submit" color="success">Create</v-btn>
 
-{% include "vue_app/base_end.html"%}
+        </v-form>
+    </v-sheet>
+</v-container>
+
+{% include "vue_app/base_end.html" with tab=0 %}

@@ -13,11 +13,12 @@ new Vue({
   vuetify: new Vuetify(),
     data: function () {
       return{
-        links: [
-            'Dashboard',
+        active_tab: {{ tab }},
+        tabs: [
+            'New Post',
             'Messages',
             'Profile',
-            'Updates',
+            'Updates'
         ]
       }
     },

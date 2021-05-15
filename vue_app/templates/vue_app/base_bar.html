@@ -12,12 +12,12 @@
         centered
         class="ml-n9"
         color="grey darken-1"
+        v-model="active_tab"
       >
         <v-tab
-          v-for="link in links"
-          :key="link"
+          v-for="tab in tabs"
         >
-          [[ link ]]
+          [[ tab ]]
         </v-tab>
       </v-tabs>
 
