@@ -8,6 +8,7 @@ class Post(models.Model):
     pub_date = models.DateTimeField('date published')
     description = models.CharField(max_length=10000, default="")
 
+    users_to_fly = models.PositiveSmallIntegerField()
 
     class Status(models.TextChoices):
         GROUNDED = 'G', 'Grounded'
@@ -23,8 +24,17 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+    @property
     def time_since_published(self):
         return timezone.now() - self.pub_date
+
+    @property
+    def boarded_users(self):
+        return Boarding.objects.filter(post=self)
+
+    @property
+    def is_ready_to_fly(self):
+        return self.users_to_fly <= len(self.boarded_users)
 
 class Boarding(models.Model):
 
