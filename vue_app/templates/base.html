@@ -12,19 +12,16 @@
 
     <script src="{% static 'vue.global.prod.js' %}"></script>
     <link href="{% static 'roboto.css' %}" rel="stylesheet">
-    <link href="{% static 'materialdesignicons.min.css' %}" rel="stylesheet">
+    <link href="{% static 'materialdesign/css/materialdesignicons.min.css' %}" rel="stylesheet">
     <link href="{% static 'vuetify.min.css' %}" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
 </head>
 <body>
+<script src="{% static 'vue.min.js' %}"></script>
+<script src="{% static 'vuetify.min.js' %}"></script>
 
 {% block content %}
 {% endblock %}
-
-{% load static %}
-
-<script src="{% static 'vue.min.js' %}"></script>
-<script src="{% static 'vuetify.min.js' %}"></script>
 
 {% block vue %}
 {% endblock %}
