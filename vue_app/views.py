@@ -13,7 +13,10 @@ def feed(request):
     return render(request, 'app/feed.html')
 
 def login(request):
-    return render(request, 'app/login.html')
+    return render(request, 'registration/login.html')
+
+def profile(request):
+    return render(request, 'registration/profile.html')
 
 def new_user(request):
 
@@ -30,7 +33,7 @@ def register_FORM(request):
             user = form.save()
             user_login(request, user)
             messages.success(request, "Registration successful.") # TODO Display to front end
-            return redirect("main:homepage")
+            return redirect("feed/")
         messages.error(request, "Unsuccessful registration. Invalid information.")
     form = NewUserForm
     return render(request=request, template_name="registration/register.html", context={"register_form": form})

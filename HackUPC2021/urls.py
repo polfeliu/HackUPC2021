@@ -27,5 +27,7 @@ urlpatterns = [
     path('new_post_FORM/', views.new_post_FORM),
 
     path('', include("django.contrib.auth.urls")),
-    path('register', views.register_FORM, name="register")
+    path('register', views.register_FORM, name="register"),
+    path('login', views.login),
+    path('profile', views.profile)
 ]

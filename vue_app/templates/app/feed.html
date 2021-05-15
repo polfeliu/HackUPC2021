@@ -1,5 +1,9 @@
-{% include "app/base_init.html" with title="new_post" %}
-{% include "app/base_bar.html" %}
+{% extends "app/base_app.html"  %}
+
+{% block title %}Feed{% endblock %}
+{% block tab %}Feed{% endblock %}
+
+{% block content_app %}
 
 <v-container>
     <v-row>
@@ -41,4 +45,4 @@
     </v-row>
 </v-container>
 
-{% include "app/base_end.html" %}
+{% endblock %}
