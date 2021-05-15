@@ -1,5 +1,5 @@
 
-# Models:
+# Models
 https://docs.djangoproject.com/en/3.2/intro/tutorial02/
 
 ##Migrate models to database
@@ -29,3 +29,18 @@ https://docs.djangoproject.com/en/3.2/intro/tutorial03/
 
 # Forms 
 https://docs.djangoproject.com/en/3.2/topics/forms/
+
+# Vue
+https://betterprogramming.pub/vue-django-using-vue-files-and-the-vue-cli-d6dd8c9145eb
+
+Install nodejs!
+
+````shell script
+npm install -g @vue/cli
+
+cd vueapp
+npm run serve
+````
+
+python manage.py collectstatic
+
