@@ -32,9 +32,8 @@ def register_FORM(request):
         if form.is_valid():
             user = form.save()
             user_login(request, user)
-            messages.success(request, "Registration successful.") # TODO Display to front end
-            return redirect("feed/")
-        messages.error(request, "Unsuccessful registration. Invalid information.")
+            return redirect("/feed")
+        messages.error(request, form.error_messages)
     form = NewUserForm
     return render(request=request, template_name="registration/register.html", context={"register_form": form})
 
