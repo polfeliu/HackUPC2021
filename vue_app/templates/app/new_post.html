@@ -1,6 +1,10 @@
-{% include "vue_app/base_init.html" with title="New Post" %}
-{% include "vue_app/base_bar.html" %}
+{% extends "app/base_app.html"  %}
 
+{% block title %}New Post{% endblock %}
+
+{% block tab %}New Post{% endblock %}
+
+{% block content_app %}
 <v-container>
 
     <v-sheet class="pa-10">
@@ -28,4 +32,4 @@
     </v-sheet>
 </v-container>
 
-{% include "vue_app/base_end.html" with tab="New Post" %}
+{% endblock %}

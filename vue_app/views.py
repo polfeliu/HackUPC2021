@@ -7,12 +7,13 @@ from django.contrib import messages
 from vue_app.models import Post
 from vue_app.forms import NewPost, NewUserForm
 
+# TODO Protect view from unauthenticated users
 
 def feed(request):
-    return render(request, 'vue_app/feed.html')
+    return render(request, 'app/feed.html')
 
 def login(request):
-    return render(request, 'vue_app/login.html')
+    return render(request, 'app/login.html')
 
 def new_user(request):
 
@@ -20,7 +21,7 @@ def new_user(request):
 
     }
 
-    return render(request, 'vue_app/new_user.html', context)
+    return render(request, 'app/new_user.html', context)
 
 def register_FORM(request):
     if request.method == "POST":
@@ -41,16 +42,16 @@ def post(request, post_id):
         context = {
             'post': Post.objects.get(id=post_id)
         }
-        return render(request, 'vue_app/post.html',context )
+        return render(request, 'app/post.html', context)
     else:
         return HttpResponseRedirect('/Error')
 
 def new_post(request):
-    return render(request, 'vue_app/new_post.html')
+    return render(request, 'app/new_post.html')
 
 
 def landing(request):
-    return render(request, 'vue_app/landing.html')
+    return render(request, 'landing.html')
 
 def new_post_FORM(request):
     # if this is a POST request we need to process the form data

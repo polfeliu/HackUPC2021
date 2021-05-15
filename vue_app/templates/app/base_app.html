@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+
+    <div id="app">
+      <v-app id="inspire">
+          {% include "app/base_app_bar.html" %}
+          <v-main class="grey lighten-3">
+            {% if user.is_authenticated %}
+                {% block content_app %}
+                {% endblock %}
+            {% else %}
+                <a href="/login">Login Here</a>
+            {% endif %}
+        </v-main>
+      </v-app>
+    </div>
+
+{% endblock %}
+
+{% block vue %}
+    <script>
+tabs = ['Messages', 'Profile', 'Updates', 'New Post']
+// TODO if tab doesn't exist redirect to error page
+new Vue({
+  el: '#app',
+  vuetify: new Vuetify(),
+    data: function () {
+      return{
+        active_tab: tabs.indexOf("{% block tab %}{% endblock %}"),
+        tabs: tabs
+      }
+    },
+    delimiters: ['[[', ']]'],
+})
+</script>
+{% endblock %}
+</body>
+</html>
