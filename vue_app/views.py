@@ -1,8 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 
-from vue_app.models import Post  # , Login
-from vue_app.forms import NewPost, NewUser
+from django.contrib.auth import login as user_login
+from django.contrib import messages
+
+from vue_app.models import Post
+from vue_app.forms import NewPost, NewUserForm
 
 
 def feed(request):
@@ -19,22 +22,18 @@ def new_user(request):
 
     return render(request, 'vue_app/new_user.html', context)
 
-def new_user_FORM(request):
-    # if this is a USER request we need to process the new user data
-    if request.method == 'POST':
-        # create a form instance and populate it with data from the data
-        form = NewUser(request.POST)
-        # check whether it's valid:
+def register_FORM(request):
+    if request.method == "POST":
+        form = NewUserForm(request.POST)
         if form.is_valid():
-            # process the data in form.cleaned_data as required
-            form.create_user()
-            # redirect to a new URL:
-            return HttpResponseRedirect('/thanks/')
-        else:
-            return HttpResponseRedirect('/Error/')
-    else:
-        return HttpResponseRedirect('/Error/')
-        # TODO Return Error View
+            user = form.save()
+            user_login(request, user)
+            messages.success(request, "Registration successful.") # TODO Display to front end
+            return redirect("main:homepage")
+        messages.error(request, "Unsuccessful registration. Invalid information.")
+    form = NewUserForm
+    return render(request=request, template_name="registration/register.html", context={"register_form": form})
+
 
 def post(request, post_id):
 
