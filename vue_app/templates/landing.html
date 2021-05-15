@@ -1,14 +1,6 @@
-<html>
-<head>
-  <title>Vuetify Parallax Starter</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900' rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
-  <link rel="shortcut icon" href="https://cdn.vuetifyjs.com/images/logos/favicon.ico">
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block content %}
 <div id="app">
   <v-app>
     <v-app-bar
@@ -247,8 +239,9 @@
     </v-footer>
   </v-app>
  </div>
- <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
- <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+{% endblock %}
+
+{% block vue %}
  <script>
   new Vue({
     el: '#app',
@@ -282,5 +275,4 @@
     }
   })
 </script>
-</body>
-</html>
+{% endblock %}
