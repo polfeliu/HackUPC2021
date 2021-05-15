@@ -8,18 +8,15 @@
 <script src="{% static 'vuetify.min.js' %}"></script>
 
 <script>
+tabs = ['Messages', 'Profile', 'Updates', 'New Post']
+
 new Vue({
   el: '#app',
   vuetify: new Vuetify(),
     data: function () {
       return{
-        active_tab: {{ tab }},
-        tabs: [
-            'New Post',
-            'Messages',
-            'Profile',
-            'Updates'
-        ]
+        active_tab: tabs.indexOf("{{ tab }}"),
+        tabs: tabs
       }
     },
     delimiters: ['[[', ']]'],
