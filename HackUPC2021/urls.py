@@ -21,5 +21,6 @@ from vue_app import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('feed', views.feed),
-    path('post/<int:post_id>', views.post)
+    path('post/<int:post_id>', views.post),
+    path('login', views.login)
 ]
