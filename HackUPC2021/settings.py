@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'tinker.apps.TinkerConfig',
     'vue_app.apps.VueAppConfig'
 ]
 
