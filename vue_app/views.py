@@ -37,11 +37,12 @@ def new_user_FORM(request):
         # TODO Return Error View
 
 def post(request, post_id):
-    context = {
-        'post': Post.objects.get(id=post_id)
-    }
-    if Post.objects.filter(id=post_id).exists()
-        return render(request, 'vue_app/post/post_id',context )
+
+    if Post.objects.filter(id=post_id).exists():
+        context = {
+            'post': Post.objects.get(id=post_id)
+        }
+        return render(request, 'vue_app/post.html',context )
     else:
         return HttpResponseRedirect('/Error')
 
