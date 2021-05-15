@@ -27,6 +27,9 @@ def new_post(request):
     return render(request, 'vue_app/new_post.html')
 
 
+def landing(request):
+    return render(request, 'vue_app/landing.html')
+
 
 def new_post_FORM(request):
     # if this is a POST request we need to process the form data
