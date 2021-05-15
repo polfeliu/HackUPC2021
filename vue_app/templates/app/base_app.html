@@ -24,14 +24,17 @@
 
 {% block vue %}
     <script>
-tabs = ['none', 'Profile', 'Feed', 'New Post']
+tabs = {
+    '/feed': 'Feed',
+    '/new_post': 'New Post'
+}
 // TODO if tab doesn't exist redirect to error page
 new Vue({
     el: '#app',
     vuetify: new Vuetify(),
     data: function () {
       return{
-        active_tab: tabs.indexOf("{% block tab %}{% endblock %}"),
+        active_tab: "{% block tab %}{% endblock %}",
         tabs: tabs
       }
     },
