@@ -16,5 +16,13 @@ class NewPost(forms.Form):
 
         post.save()
 
+class NewUser(forms.Form):
+    email = forms.EmailField()
+    pwd = forms.PasswordInput()
+
+    def create_user(self):
+        pass  # TODO
+
+
 
 
