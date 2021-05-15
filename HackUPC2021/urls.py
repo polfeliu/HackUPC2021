@@ -20,7 +20,7 @@ from vue_app import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',  views.landing),
+    path('landing',  views.landing),
     path('feed', views.feed),
     path('post/<int:post_id>', views.post),
     path('new_post/', views.new_post),
