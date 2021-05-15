@@ -14,17 +14,18 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 from vue_app import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',  views.landing),
-    path('login', views.login),
     path('feed', views.feed),
     path('post/<int:post_id>', views.post),
     path('new_post/', views.new_post),
     path('new_post_FORM/', views.new_post_FORM),
-    path('new_user',views.new_user)
+
+    path('', include("django.contrib.auth.urls")),
+    path('register', views.register_FORM, name="register")
 ]
