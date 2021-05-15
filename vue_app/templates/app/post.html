@@ -4,8 +4,17 @@
 {% block tab %}Feed{% endblock %}
 
 {% block content_app %}
+    <v-form method="post" class="form-group pa-5">
+        {% csrf_token %}
+        
+        <v-btn type="submit">
+        Board this post
+        </v-btn>
+    </v-form>
+
 
 <v-container>
+
     <v-row>
         <v-col
                 cols="12"

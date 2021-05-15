@@ -1,9 +1,9 @@
 from django import forms
 from django.utils import timezone
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 
-from .models import Post
+from .models import Post, User, Boarding
 
 class NewPost(forms.Form):
     title = forms.CharField(max_length=100)
@@ -21,6 +21,15 @@ class NewPost(forms.Form):
         post.save()
 
         return post.id
+
+class NewBoarding(forms.Form):
+
+    def create_boarding(self, user, post):
+        b = Boarding(
+            user=user,
+            post=post
+        )
+        b.save()
 
 class NewUserForm(UserCreationForm):
     email = forms.EmailField()
@@ -46,6 +55,3 @@ class NewUserForm(UserCreationForm):
         if commit:
             user.save()
         return user
-
-
-

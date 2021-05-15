@@ -18,6 +18,8 @@ from django.urls import path, include
 
 from vue_app import views
 
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',  views.landing),
@@ -28,6 +30,6 @@ urlpatterns = [
 
     path('', include("django.contrib.auth.urls")),
     path('register', views.register_FORM, name="register"),
-    path('login', views.login),
-    path('profile', views.profile)
+    #path('login', views.login),
+    path('profile', views.profile),
 ]

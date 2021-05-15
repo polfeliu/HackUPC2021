@@ -5,7 +5,7 @@ from django.contrib.auth import login as user_login
 from django.contrib import messages
 
 from vue_app.models import Post
-from vue_app.forms import NewPost, NewUserForm
+from vue_app.forms import NewPost, NewUserForm, AuthenticationForm, NewBoarding
 
 # TODO Protect view from unauthenticated users
 
@@ -14,9 +14,6 @@ def feed(request):
         "posts": Post.objects.all()
     }
     return render(request, 'app/feed.html', context)
-
-def login(request):
-    return render(request, 'registration/login.html')
 
 def profile(request):
     return render(request, 'registration/profile.html')
@@ -47,6 +44,15 @@ def post(request, post_id):
         context = {
             'post': Post.objects.get(id=post_id)
         }
+
+        if request.method == "POST":
+            form = NewBoarding(request.POST)
+            if form.is_valid():
+                form.create_boarding(
+                    post=context['post'],
+                    user=request.user
+                )
+
         return render(request, 'app/post.html', context)
     else:
         return HttpResponseRedirect('/Error')
