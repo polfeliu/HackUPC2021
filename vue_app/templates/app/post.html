@@ -1,1 +1,85 @@
-hello {{ post.id }}
+{% extends "app/base_app.html"  %}
+{% load static %}
+{% block title %}Feed{% endblock %}
+{% block tab %}Feed{% endblock %}
+
+{% block content_app %}
+
+<v-container>
+    <v-row>
+        <v-col
+                cols="12"
+                sm="2"
+        >
+            <v-sheet
+                    rounded="lg"
+                    min-height="268"
+            >
+                <v-img
+                contain
+                max-height="100%"
+                src="{% static '/logos/1.png' %}"
+            ></v-img>
+            </v-sheet>
+        </v-col>
+
+        <v-col
+                cols="12"
+                sm="8"
+        >
+            <v-sheet
+                    min-height="70vh"
+                    rounded="lg"
+            >
+
+                {% for post in posts %}
+
+                <v-card
+                class="mx-auto"
+                outlined
+              >
+                <v-list-item three-line>
+                  <v-list-item-content>
+                    <div class="overline mb-4">
+                      <v-list-item-subtitle>{{ post.pub_date }}</v-list-item-subtitle>
+                    </div>
+                    <v-list-item-title class="headline mb-1">
+                      {{post.title}}
+                    </v-list-item-title>
+                    <v-list-item-subtitle>{{post.description}}</v-list-item-subtitle>
+                  </v-list-item-content>
+
+                <v-card-actions>
+                  <v-btn
+                    outlined
+                    rounded
+                    text
+                  >
+                    Tell me more
+                  </v-btn>
+                </v-card-actions>
+              </v-card>
+                <!--  -->
+                {% endfor %}
+            </v-sheet>
+        </v-col>
+
+        <v-col
+                cols="12"
+                sm="2"
+        >
+            <v-sheet
+                    rounded="lg"
+                    min-height="268"
+            >
+                <v-img
+                contain
+                max-height="100%"
+                src="{% static '/logos/2.png' %}"
+                ></v-img>
+            </v-sheet>
+        </v-col>
+    </v-row>
+</v-container>
+
+{% endblock %}

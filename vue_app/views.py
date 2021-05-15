@@ -10,7 +10,10 @@ from vue_app.forms import NewPost, NewUserForm
 # TODO Protect view from unauthenticated users
 
 def feed(request):
-    return render(request, 'app/feed.html')
+    context = {
+        "posts": Post.objects.all()
+    }
+    return render(request, 'app/feed.html', context)
 
 def login(request):
     return render(request, 'registration/login.html')

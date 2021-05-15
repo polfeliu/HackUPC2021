@@ -8,12 +8,14 @@ from .models import Post
 class NewPost(forms.Form):
     title = forms.CharField(max_length=100)
     description = forms.CharField(max_length=10000)
+    users_to_fly = forms.IntegerField(min_value=1, max_value=100)
 
     def create_post(self):
         post = Post(
             title=self.cleaned_data['title'],
             pub_date=timezone.now(),
-            description=self.cleaned_data['description']
+            description=self.cleaned_data['description'],
+            users_to_fly=self.cleaned_data['users_to_fly']
         )
 
         post.save()
