@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
     <div id="app">
@@ -18,7 +19,7 @@
                         <v-img
                                 contain
                                 max-height="70%"
-                                src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
+                                src="{% static '/logos/4.png' %}"
                         ></v-img>
                     </v-avatar>
 
@@ -59,7 +60,7 @@
                                                         :class="[$vuetify.breakpoint.smAndDown ? 'display-3': 'display-4']"
                                                         class="font-weight-black"
                                                 >
-                      TO Minglify
+                      to minglify
                     </span>
 
                                             </v-col>
@@ -112,19 +113,19 @@
                                     class="elevation-12 mb-12"
                                     size="128"
                             >
-                                <v-img src="https://cdn.vuetifyjs.com/images/john.png"></v-img>
+                                <v-img src="{% static '/logos/3.png' %}"></v-img>
                             </v-avatar>
 
                             <div></div>
 
                             <v-btn
                                     color="grey"
-                                    href="https://vuetifyjs.com"
+                                    href="/register"
                                     outlined
                                     large
                             >
             <span class="grey--text text--darken-1 font-weight-bold">
-              Vuetify Documentation
+              Sign me up!
             </span>
                             </v-btn>
                         </v-container>

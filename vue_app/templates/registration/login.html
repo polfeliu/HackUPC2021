@@ -1,0 +1,52 @@
+{% extends "registration/base_registration.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block content_app %}
+
+    <v-container fluid pa-0>
+        <v-row align="center" justify="center" style="height:100vh">
+            <v-col class="lighten-2 d-flex flex-column justify-center align-center">
+                <v-card min-width="400">
+                    <v-card-text>
+
+                        <h2 center>
+                            Login to Minglify
+                        </h2>
+
+                        {% if form.errors %}
+                        <p>Your username and password didn't match. Please try again.</p>
+                        {% endif %}
+
+                        <v-form method="post" class="form-group pa-5">
+                            {% csrf_token %}
+
+                            <v-text-field
+                                    outlined
+                                    v-model="name"
+                                    label="username"
+                                    name="username"
+                                    required
+                            ></v-text-field>
+
+                            <v-text-field
+                                    outlined
+                                    type="password"
+                                    label="password"
+                                    name="password"
+                                    rows="20"
+                            ></v-text-field>
+
+                            <v-btn type="submit" color="primary">Login</v-btn>
+
+                            <v-btn type="submit">Register </v-btn>
+
+                        </v-form>
+
+                    </v-card-text>
+                </v-card>
+            </v-col>
+        </v-row>
+    </v-container>
+
+{% endblock %}
