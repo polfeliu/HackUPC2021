@@ -36,6 +36,12 @@ class Post(models.Model):
     def is_ready_to_fly(self):
         return self.users_to_fly <= len(self.boarded_users)
 
+    def is_user_boarded(self, user):
+        return Boarding.objects.filter(
+            post=self,
+            user=user
+        ).exists()
+
 class Boarding(models.Model):
 
     def __str__(self):
