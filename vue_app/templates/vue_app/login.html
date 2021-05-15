@@ -12,11 +12,9 @@
     <form action="login" method="post">
         {% csrf_token %}
         <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email"><br>
+        <input type="email" id="email" placeholder="Enter Email" name="email" required><br>
         <label for="pwd">Password:</label><br>
-        <input type="password" id="pwd" name="pwd"><br>
-        <input type="checkbox" id="imstudent" name="ifstudent" value="okstudent">
-        <label for="imstudent"> I'm a UPC Student</label></br>
+        <input type="password" id="pwd" placeholder="Enter Password" name="pwd" required><br>
         <input type="submit" value="Log in">
     </form>
     <script type="text/javascript">
