@@ -1,0 +1,28 @@
+    </v-main>
+  </v-app>
+</div>
+
+{% load static %}
+
+<script src="{% static 'vue.min.js' %}"></script>
+<script src="{% static 'vuetify.min.js' %}"></script>
+
+<script>
+new Vue({
+  el: '#app',
+  vuetify: new Vuetify(),
+    data: function () {
+      return{
+        links: [
+            'Dashboard',
+            'Messages',
+            'Profile',
+            'Updates',
+        ]
+      }
+    },
+    delimiters: ['[[', ']]'],
+})
+</script>
+</body>
+</html>

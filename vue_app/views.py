@@ -6,19 +6,10 @@ from vue_app.forms import NewPost, NewUser
 
 
 def feed(request):
-
-    context = {
-        'myvar': 'helooooo',
-        'posts': Post.objects.all()
-    }
-    return render(request, 'vue_app/test.html', context)
+    return render(request, 'vue_app/feed.html')
 
 def login(request):
-
-    context = {
-
-    }
-    return render(request, 'vue_app/login.html', context)
+    return render(request, 'vue_app/login.html')
 
 def new_user(request):
 

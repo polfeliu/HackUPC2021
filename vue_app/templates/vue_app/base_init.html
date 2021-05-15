@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+
+    {% load static %}
+
+    <script src="{% static 'vue.global.prod.js' %}"></script>
+    <link href="{% static 'roboto.css' %}" rel="stylesheet">
+    <link href="{% static 'materialdesignicons.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vuetify.min.css' %}" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+</head>
+<body>
+
+<div id="app">
+  <v-app id="inspire">
+      <v-main class="grey lighten-3">

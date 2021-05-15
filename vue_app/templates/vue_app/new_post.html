@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>New post</title>
-</head>
-<body>
+{% include "vue_app/base_init.html" with title="new_post" %}
+{% include "vue_app/base_bar.html" %}
+
+
+
 <form action="/new_post_FORM/" method="post">
     {% csrf_token %}
     <label for="your_name">Your name: </label>
@@ -14,5 +12,5 @@
     <input type="submit" value="OK">
 
 </form>
-</body>
-</html>
+
+{% include "vue_app/base_end.html"%}
