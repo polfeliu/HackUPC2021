@@ -1,12 +1,21 @@
+{% load static %}
+
 <v-app-bar
         app
         color="white"
         flat
 >
     <v-avatar
-            :color="$vuetify.breakpoint.smAndDown ? 'grey darken-1' : 'transparent'"
-            size="32"
-    ></v-avatar>
+        class="mr-3"
+        color="grey lighten-5"
+        size="40"
+    >
+        <v-img
+                contain
+                max-height="100%"
+                src="{% static '/logos/4.png' %}"
+        ></v-img>
+    </v-avatar>
 
     <v-tabs
             centered
