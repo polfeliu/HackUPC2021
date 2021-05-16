@@ -12,11 +12,11 @@
             <v-app id="inspire">
 
                 <v-main class="grey lighten-3">
-                    {% if user.is_authenticated %}
+                    {% if not user.is_authenticated %}
                         {% block content_app %}
                         {% endblock %}
                     {% else %}
-                        <a href="/login">Login Here</a>
+                        <a href="/feed">Go to feed</a>
                     {% endif %}
                 </v-main>
             </v-app>
