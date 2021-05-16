@@ -44,8 +44,12 @@
             vuetify: new Vuetify(),
             data: function () {
                 return {
-                    //'gender_items': ["female",  "male", "others", "prefer not to say"]
-                    'gender_items' : ["1", "2", "3", "4"]
+                    'gender_items': [
+                        {value: "1", text:"female"},
+                        {value: "2", text:"male"},
+                        {value: "3", text:"others"},
+                        {value: "4", text:"prefer not to say"}
+                    ]
                 }
             },
             delimiters: ['[[', ']]'],
