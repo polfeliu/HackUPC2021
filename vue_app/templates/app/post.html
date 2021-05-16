@@ -57,8 +57,13 @@
                   >
                     Go back
                   </v-btn>
-
-                    {% if not is_user_boarded %}
+                    {% if is_user_boarded %}
+                         <v-btn
+                        type="submit"
+                        >
+                            already on board
+                        </v-btn>
+                    {% else %}
                   <v-form method="post" class="form-group pa-5">
                     {% csrf_token %}
                         <v-btn
