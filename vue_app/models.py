@@ -33,8 +33,12 @@ class Post(models.Model):
         return Boarding.objects.filter(post=self)
 
     @property
+    def num_boarded_users(self):
+        return len(self.boarded_users)
+
+    @property
     def is_ready_to_fly(self):
-        return self.users_to_fly <= len(self.boarded_users)
+        return self.users_to_fly <= self.num_boarded_users
 
     def is_user_boarded(self, user):
         return Boarding.objects.filter(
