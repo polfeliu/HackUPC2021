@@ -11,7 +11,7 @@ from vue_app.forms import NewPost, NewUserForm, AuthenticationForm, NewBoarding
 
 def feed(request):
     context = {
-        "posts": Post.objects.all()
+        "posts": Post.objects.order_by('-pub_date').all()
     }
 
     return render(request, 'app/feed.html', context)
