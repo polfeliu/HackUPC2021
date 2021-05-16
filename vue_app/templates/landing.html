@@ -29,9 +29,12 @@
 
                 <v-main>
                     <section id="hero">
-                        <v-row no-gutters>
-                            <v-img
-                                    :min-height="'calc(100vh - ' + $vuetify.application.top + 'px)'"
+                        <v-row>
+                            <v-container fluid>
+
+
+                            <v-parallax
+                                    height="600"
                                     src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1950&q=80"
                             >
                                 <v-theme-provider dark>
@@ -75,7 +78,8 @@
                                         </v-row>
                                     </v-container>
                                 </v-theme-provider>
-                            </v-img>
+                            </v-parallax>
+                                </v-container>
                         </v-row>
                     </section>
 
@@ -196,8 +200,8 @@
 
                     <section id="stats">
                         <v-parallax
-                                :height="$vuetify.breakpoint.smAndDown ? 700 : 500"
-                                src="https://images.unsplash.com/photo-1566140967404-b8b3932483f5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
+                                height="400"
+                                src="https://images.unsplash.com/photo-1566140967404-b8b3932483f5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&h=300&q=90"
                         >
                             <v-container fill-height>
                                 <v-row class="mx-auto">
@@ -271,17 +275,17 @@
                         {
                             icon: 'mdi-account-group-outline',
                             title: 'Vibrant Community',
-                            text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto cupiditate sint possimus quidem atque harum excepturi nemo velit tempora! Enim inventore fuga, qui ipsum eveniet facilis obcaecati corrupti asperiores nam',
+                            text: ''
                         },
                         {
                             icon: 'mdi-update',
                             title: 'All kinds of ideas',
-                            text: 'Sed ut elementum justo. Suspendisse non justo enim. Vestibulum cursus mauris dui, a luctus ex blandit. Lorem ipsum dolor sit amet consectetur adipisicing elit. qui ipsum eveniet facilis obcaecati corrupti consectetur adipisicing elit.',
+                            text: ''
                         },
                         {
                             icon: 'mdi-shield-outline',
                             title: 'Spreading tech and values',
-                            text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto cupiditate sint possimus quidem atque harum excepturi nemo velit tempora! Enim inventore fuga, qui ipsum eveniet facilis obcaecati corrupti asperiores nam',
+                            text: ''
                         },
                     ],
                     stats: [
