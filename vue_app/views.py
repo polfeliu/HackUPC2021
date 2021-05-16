@@ -56,6 +56,8 @@ def post(request, post_id):
                     user=request.user
                 )
 
+                context['post'] = Post.objects.get(id=post_id)
+
         return render(request, 'app/post.html', context)
     else:
         return HttpResponseRedirect('/Error')
