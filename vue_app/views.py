@@ -11,7 +11,7 @@ from vue_app.forms import NewPost, NewUserForm, AuthenticationForm, NewBoarding
 
 def feed(request):
     context = {
-        "posts": Post.objects.all()
+        "posts": Post.objects.order_by('-pub_date').all()
     }
 
     return render(request, 'app/feed.html', context)
@@ -56,7 +56,10 @@ def post(request, post_id):
                     user=request.user
                 )
 
-                context['post'] = Post.objects.get(id=post_id)
+                context = {
+                    'post': post,
+                    'is_user_boarded': post.is_user_boarded(request.user)
+                }
 
         return render(request, 'app/post.html', context)
     else:
