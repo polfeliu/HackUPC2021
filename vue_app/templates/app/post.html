@@ -57,6 +57,8 @@
                   >
                     Go back
                   </v-btn>
+
+                    {% if not is_user_boarded %}
                   <v-form method="post" class="form-group pa-5">
                     {% csrf_token %}
                         <v-btn
@@ -65,6 +67,7 @@
                             Board this post
                         </v-btn>
                   </v-form>
+                    {% endif %}
                 </v-card-actions>
               </v-card>
             </v-sheet>

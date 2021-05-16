@@ -13,6 +13,7 @@ def feed(request):
     context = {
         "posts": Post.objects.all()
     }
+
     return render(request, 'app/feed.html', context)
 
 def profile(request):
@@ -29,7 +30,6 @@ def new_user(request):
 def register_FORM(request):
     if request.method == "POST":
         form = NewUserForm(request.POST)
-        form.cleaned_data['gender'] = '1'
         if form.is_valid():
             user = form.save()
             user_login(request, user)
@@ -42,8 +42,10 @@ def register_FORM(request):
 def post(request, post_id):
 
     if Post.objects.filter(id=post_id).exists():
+        post = Post.objects.get(id=post_id)
         context = {
-            'post': Post.objects.get(id=post_id)
+            'post': post,
+            'is_user_boarded': post.is_user_boarded(request.user)
         }
 
         if request.method == "POST":
