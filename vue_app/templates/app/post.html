@@ -30,12 +30,9 @@
             <v-sheet
                     min-height="70vh"
                     rounded="lg"
+                    class="pa-5"
             >
 
-                <v-card
-                class="mx-auto"
-                outlined
-              >
                 <v-list-item three-line>
                   <v-list-item-content>
                     <div class="overline mb-4">
@@ -57,24 +54,29 @@
                   >
                     Go back
                   </v-btn>
+                <div class="ml-auto">
                     {% if is_user_boarded %}
-                         <v-btn
-                        type="submit"
-                        >
+                         <v-chip>
                             already on board
-                        </v-btn>
+                        </v-chip>
                     {% else %}
                   <v-form method="post" class="form-group pa-5">
                     {% csrf_token %}
                         <v-btn
                         type="submit"
+                        color="primary"
                         >
-                            Board this post
+                            Board this post &nbsp;
+                            <v-icon>
+                                mdi-airplane
+                            </v-icon>
+
                         </v-btn>
                   </v-form>
                     {% endif %}
+                </div>
                 </v-card-actions>
-              </v-card>
+
             </v-sheet>
         </v-col>
 
