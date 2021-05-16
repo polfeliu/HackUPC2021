@@ -56,7 +56,10 @@ def post(request, post_id):
                     user=request.user
                 )
 
-                context['post'] = Post.objects.get(id=post_id)
+                context = {
+                    'post': post,
+                    'is_user_boarded': post.is_user_boarded(request.user)
+                }
 
         return render(request, 'app/post.html', context)
     else:
