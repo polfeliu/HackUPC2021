@@ -18,6 +18,8 @@ from django.urls import path, include
 
 from vue_app import views
 
+import django.contrib.auth.urls
+
 
 
 urlpatterns = [

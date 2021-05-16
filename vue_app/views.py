@@ -29,6 +29,7 @@ def new_user(request):
 def register_FORM(request):
     if request.method == "POST":
         form = NewUserForm(request.POST)
+        form.cleaned_data['gender'] = '1'
         if form.is_valid():
             user = form.save()
             user_login(request, user)

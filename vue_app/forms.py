@@ -34,7 +34,6 @@ class NewBoarding(forms.Form):
 class NewUserForm(UserCreationForm):
     email = forms.EmailField()
 
-
     gender = forms.ChoiceField(choices =
         (
             (1, "female"),
